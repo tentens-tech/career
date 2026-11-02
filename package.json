@@ -1,0 +1,43 @@
+{
+  "name": "career-matrix",
+  "type": "module",
+  "private": true,
+  "packageManager": "pnpm@8.10.5",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "pnpm data && nuxi build",
+    "dev:pwa": "pnpm data && VITE_PLUGIN_PWA=true nuxi dev",
+    "dev": "pnpm data && nuxi dev",
+    "generate": "pnpm data && nuxi generate",
+    "postinstall": "nuxi prepare",
+    "start:generate": "npx serve .output/public",
+    "lint": "eslint .",
+    "typecheck": "pnpm data && vue-tsc --noEmit",
+    "data": "node scripts/validate-matrix.mjs && node scripts/build-matrix.mjs",
+    "validate": "node scripts/validate-matrix.mjs"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.9.0",
+    "is-mobile": "4.0.0",
+    "vite-svg-loader": "5.1.0"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.0.0",
+    "@iconify-json/carbon": "^1.1.21",
+    "@iconify-json/twemoji": "^1.1.12",
+    "@nuxtjs/color-mode": "^3.3.2",
+    "@pinia/nuxt": "^0.5.1",
+    "@unocss/eslint-config": "^0.57.6",
+    "@unocss/nuxt": "^0.57.6",
+    "@vite-pwa/nuxt": "^0.2.3",
+    "@vueuse/nuxt": "^10.6.1",
+    "eslint": "^8.54.0",
+    "nuxt": "^3.8.1",
+    "pinia": "^2.1.7",
+    "sass": "~1.77.8",
+    "typescript": "^5.3.2",
+    "vue-tsc": "^1.8.22"
+  }
+}

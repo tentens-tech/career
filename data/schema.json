@@ -1,0 +1,20 @@
+{
+  "$comment": "Allowed grades per role. Keep in sync with types/matrix.ts and gradesOrderMap in components/TheMatrix.vue. Used by scripts/validate-matrix.mjs.",
+  "gradeSets": {
+    "ic": ["IC1", "IC2", "IC3", "IC4", "Staff Engineer", "Senior Staff Engineer"],
+    "lead": ["L1", "L2"],
+    "analytics": ["IC1", "IC2", "IC3", "IC4", "IC5"],
+    "design": ["IC1", "IC2", "IC3", "IC4"]
+  },
+  "roles": {
+    "analytics": "analytics",
+    "backend": "ic",
+    "dba": "ic",
+    "design": "design",
+    "devops": "ic",
+    "frontend": "ic",
+    "lead": "lead",
+    "qa": "ic",
+    "so": "ic"
+  }
+}

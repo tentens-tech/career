@@ -1,0 +1,12 @@
+node_modules
+*.log
+dist
+.output
+.nuxt
+.env
+.idea/
+
+# generated from data/roles + data/shared
+data/matrix.generated.json
+.DS_Store
+.env.*
