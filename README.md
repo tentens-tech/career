@@ -2,7 +2,7 @@
 
 Кар'єрний фреймворк  команди TENTENS Tech. Для кожної ролі він описує, що очікується на кожному грейді, від IC1 до Senior Staff Engineer.
 
-- Матриця: [https://carier.tentens.tech](https://carier.tentens.tech)
+- Матриця: [https://career.tentens.tech](https://career.tentens.tech)
 - Вакансії: [https://jobs.ashbyhq.com/TENTENS-Tech](https://jobs.ashbyhq.com/TENTENS-Tech)
 
 ## Як це працює на практиці
