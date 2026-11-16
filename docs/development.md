@@ -37,7 +37,7 @@ pnpm dev          # http://localhost:3000
 
 ```
 data/
-  roles/<role>.json     # по файлу на роль: backend, frontend, qa, devops, dba, so, lead, analytics, design
+  roles/<role>.json     # по файлу на роль: backend, frontend, qa, devops, dba, so, lead, analytics, data-engineer, design
   shared/<block>.json   # блоки, спільні для кількох ролей (culture, direction, outcome, talent)
   schema.json           # дозволені грейди для ролей (використовує валідатор)
 ```

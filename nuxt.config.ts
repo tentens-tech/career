@@ -42,6 +42,7 @@ export default defineNuxtConfig({
         '/',
         '/tech-career',
         '/tech-career/analytics',
+        '/tech-career/data-engineer',
         '/tech-career/frontend',
         '/tech-career/backend',
         '/tech-career/devops',

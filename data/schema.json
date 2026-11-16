@@ -4,13 +4,14 @@
     "ic": ["IC1", "IC2", "IC3", "IC4", "Staff Engineer", "Senior Staff Engineer"],
     "lead": ["L1", "L2"],
     "analytics": ["IC1", "IC2", "IC3", "IC4", "IC5"],
-    "design": ["IC1", "IC2", "IC3", "IC4"]
+    "ic4": ["IC1", "IC2", "IC3", "IC4"]
   },
   "roles": {
     "analytics": "analytics",
     "backend": "ic",
+    "data-engineer": "ic4",
     "dba": "ic",
-    "design": "design",
+    "design": "ic4",
     "devops": "ic",
     "frontend": "ic",
     "lead": "lead",
