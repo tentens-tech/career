@@ -11,7 +11,7 @@
     "dev:pwa": "pnpm data && VITE_PLUGIN_PWA=true nuxi dev",
     "dev": "pnpm data && nuxi dev",
     "generate": "pnpm data && nuxi generate",
-    "postinstall": "nuxi prepare",
+    "postinstall": "nuxi prepare && simple-git-hooks",
     "start:generate": "npx serve .output/public",
     "lint": "eslint .",
     "typecheck": "pnpm data && vue-tsc --noEmit",
@@ -34,10 +34,19 @@
     "@vite-pwa/nuxt": "^0.2.3",
     "@vueuse/nuxt": "^10.6.1",
     "eslint": "^8.54.0",
+    "lint-staged": "^17.6.0",
     "nuxt": "^3.8.1",
     "pinia": "^2.1.7",
     "sass": "~1.77.8",
+    "simple-git-hooks": "^2.14.0",
     "typescript": "^5.3.2",
     "vue-tsc": "^1.8.22"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "node scripts/pre-commit.mjs",
+    "pre-push": "node scripts/pre-push.mjs"
+  },
+  "lint-staged": {
+    "*.{js,mjs,ts,vue,json}": "eslint --fix"
   }
 }

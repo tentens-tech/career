@@ -65,7 +65,7 @@ Editing a file in `data/shared/` changes **every** role that references it. If a
 pnpm validate && pnpm lint && pnpm typecheck && pnpm generate
 ```
 
-CI runs the same steps. `pnpm validate` explains exactly what is wrong in the data (file, category, grade).
+Git hooks (installed by `pnpm install` via `simple-git-hooks`) run most of this for you: `pre-commit` validates data, lints staged files and typechecks when relevant; `pre-push` runs `pnpm generate`. Use `--no-verify` to skip (e.g. WIP). CI runs the same steps. `pnpm validate` explains exactly what is wrong in the data (file, category, grade).
 
 ## Growth stories
 

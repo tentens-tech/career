@@ -1,47 +1,51 @@
 # TENTENS Career Matrix
 
-Open-source source code of the TENTENS Tech engineering career framework:
-**https://carier.tentens.tech**
+Кар'єрний фреймворк  команди TENTENS Tech. Для кожної ролі він описує, що очікується на кожному грейді, від IC1 до Senior Staff Engineer.
 
-The site shows, for every role, the skills expected at each grade (IC1 → Senior Staff Engineer, L1/L2 for leads, …) and a few growth stories. It is a fully static site: [Nuxt 3](https://nuxt.com) pre-rendered with `nuxi generate`, hosted on GitHub Pages. There is no backend.
+- Матриця: [https://carier.tentens.tech](https://carier.tentens.tech)
+- Вакансії: [https://jobs.ashbyhq.com/TENTENS-Tech](https://jobs.ashbyhq.com/TENTENS-Tech)
 
-> The framework content itself (role descriptions) is written in Ukrainian.
+## Як це працює на практиці
 
-## Quick start
+- **Performance review.** Ви з people-менеджером узгоджуєте відповідність грейду й визначаєте сильні та слабкі сторони.
+- **Прогнозоване зростання**. Матриця показує, що робить інженер на кожному грейді, тож зростання можна планувати наперед.
 
-Requirements: Node.js 22 (>= 20) and pnpm 8 (`corepack enable` picks the right version from `package.json`).
+- **Можливість зміни ролі**. Обрати шлях зростання як експерт (IC-трек), перейти на лідерський трек або змінити роль.
 
-```bash
-pnpm install
-pnpm dev          # http://localhost:3000
-```
+## Як влаштована матриця
 
-| Command | What it does |
-| --- | --- |
-| `pnpm dev` | Dev server (validates and builds the matrix data first) |
-| `pnpm validate` | Validates `data/` only — fast, run it after editing content |
-| `pnpm lint` | ESLint |
-| `pnpm typecheck` | `vue-tsc` |
-| `pnpm generate` | Static site into `.output/public` |
-| `pnpm start:generate` | Preview the generated site locally |
+Рядок матриці це навичка, колонка це грейд. У клітинці описана поведінка від першої особи, наприклад: *«Я декомпозую задачі й обираю шляхи їх реалізації»*. Тобто це не перелік технологій, а патерни поведінки та рівень відповідальності.
 
-## Where the content lives
+Навички бувають двох типів:
 
-The matrix is split by role so it is easy to review and maintain:
+- **Спільні для всіх ролей:** Culture, Direction, Outcome, Talent.
+- **Специфічні для ролі:** Code fluency, Software design, Architecture design, Code review, тестування й автоматизація для QA тощо.
 
-```
-data/
-  roles/<role>.json     # one file per role: backend, frontend, qa, devops, dba, so, lead, analytics, design
-  shared/<block>.json   # blocks reused by several roles (culture, direction, outcome, talent)
-  schema.json           # allowed grades per role (used by the validator)
-```
+## Грейди
 
-`scripts/build-matrix.mjs` merges them into `data/matrix.generated.json` (git-ignored) which the app imports. Details and editing rules: [CONTRIBUTING.md](./CONTRIBUTING.md).
 
-## Deployment
+| Грейд                 | Головна зміна                                                                                           |
+| --------------------- | ------------------------------------------------------------------------------------------------------- |
+| IC1                   | Розв'язує задачі, які ставить менеджер (до спринта). Вчиться оцінювати, комунікувати, просити допомоги. |
+| IC2                   | Працює автономно в межах команди. Відповідає за результат і за те, що задача працює на проді.           |
+| IC3                   | Сам декомпозує задачі, обирає рішення, пріоритезує за потребами бізнесу.                                |
+| IC4                   | Веде великі проєкти (до півроку) «під ключ», впливає на рівень гільдії.                                 |
+| Staff Engineer        | Проєкти будь-якої складності, технічні рішення на рівні гільдії, участь у стратегії проекту.            |
+| Senior Staff Engineer | Вплив на рівні компанії, виконання цілей компанії.                                                      |
 
-Every push to `main` runs `.github/workflows/deploy.yml`: validate → lint → typecheck → `nuxi generate` → publish to GitHub Pages. Pull requests run the same checks without publishing. The custom domain comes from `public/CNAME`.
 
-## License
+Траєкторія: виконую задачу, веду задачу, веду проєкт, формую напрямок. 
 
-[MIT](./LICENSE). Originally bootstrapped from [Vitesse for Nuxt 3](https://github.com/antfu/vitesse-nuxt3) by Anthony Fu.
+Коло впливу розширюється так: команда, гільдія, компанія.
+
+## Спільні блоки
+
+- **Culture:** Collaboration, Communication. Як ми працюємо разом.
+- **Direction:** Agility, Innovation, Strategy. Готовність до змін, ідеї, roadmap і стратегія.
+- **Outcome:** Scope &amp; Autonomy, Ownership, Decision making, Business understanding, Impact. Задача закінчується не на останньому коміті, а після перевірки на проді й моніторингу.
+- **Talent:** Personal growth, Hiring, Talent development. Ви ініціюєте розмови про свій розвиток, ділитесь знаннями, менторите, проводите інтерв'ю.
+
+## Контриб'юшн і розробка
+
+- Знайшли неточність або маєте ідею: [CONTRIBUTING.md](./CONTRIBUTING.md).
+- Запуск сайту, структура даних, git-хуки, деплой: [docs/development.md](./docs/development.md).
