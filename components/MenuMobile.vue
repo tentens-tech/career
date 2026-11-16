@@ -25,6 +25,7 @@ const competitionsItems: { name: string, path: string }[] = [
   { name: 'DBA', path: '/tech-career/dba' },
   { name: 'SO', path: '/tech-career/so' },
   { name: 'Analytic', path: '/tech-career/analytics' },
+  { name: 'Data Engineer', path: '/tech-career/data-engineer' },
   { name: 'Design', path: '/tech-career/design' },
   { name: 'Lead track', path: '/tech-career/lead' },
 ]
@@ -61,14 +62,8 @@ watch(isMobile, (newValue) => {
 <template>
   <div
     flex="~ col items-center justify-start"
-    fixed
-    top-62px
-    left-0
-    right-0
-    z-10
-    h-full
-    bg-black
-    p-t-30px
+
+    fixed left-0 right-0 top-62px z-10 h-full bg-black p-t-30px
     class="menu"
     :class="{ menu_opened: isOpened }"
   >
@@ -89,9 +84,8 @@ watch(isMobile, (newValue) => {
 
     <div
       ref="dropdownCompetitions"
-      position-relative
-      p-b-20px
-      cursor-pointer
+
+      position-relative cursor-pointer p-b-20px
       @click="toggleCompetitionsDropdown"
     >
       <div
@@ -135,9 +129,8 @@ watch(isMobile, (newValue) => {
 
     <div
       ref="dropdownGrowthCases"
-      position-relative
-      p-b-20px
-      cursor-pointer
+
+      position-relative cursor-pointer p-b-20px
       @click="toggleGrowthCasesDropdown"
     >
       <div

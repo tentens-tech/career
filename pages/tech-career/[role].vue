@@ -27,15 +27,16 @@ definePageMeta({
     } = to
 
     const roleBreadcrumbs: Record<string, string> = {
-      backend: 'Backend',
-      lead: 'Lead',
-      frontend: 'Frontend',
-      so: 'SO',
-      dba: 'DBA',
-      devops: 'Devops',
-      qa: 'QA',
-      analytics: 'Analytic',
-      design: 'Design',
+      'backend': 'Backend',
+      'lead': 'Lead',
+      'frontend': 'Frontend',
+      'so': 'SO',
+      'dba': 'DBA',
+      'devops': 'Devops',
+      'qa': 'QA',
+      'analytics': 'Analytic',
+      'data-engineer': 'Data Engineer',
+      'design': 'Design',
     }
     const roleBreadcrumb = roleBreadcrumbs[role as string]
 
@@ -52,47 +53,52 @@ definePageMeta({
 })
 
 const rolesMap: Record<string, { title: string, description: string }> = {
-  backend: {
+  'backend': {
     title: 'Backend Engineer',
     description:
       'Engineer в TENTENS Tech - це партнер для бізнесу, який використовуючи свій набір інструментів (мов програмування, методологій розробки та тестування, знань баз даних та інфраструктури) допомагає бізнесу досягати поставлених цілей.',
   },
-  lead: {
+  'lead': {
     title: 'Lead Track',
     description:
       'Координує команду розробників та їхню роботу задля досягнення цілей проєкту',
   },
-  frontend: {
+  'frontend': {
     title: 'Frontend Engineer',
     description:
       'Engineer в TENTENS Tech - це партнер для бізнесу, який використовуючи свій набір інструментів (мов програмування, методологій розробки та тестування, знань баз даних та інфраструктури) допомагає бізнесу досягати поставлених цілей.',
   },
-  so: {
+  'so': {
     title: 'Service Operations Engineer',
     description:
       'Engineer в TENTENS Tech - це партнер для бізнесу, який використовуючи свій набір інструментів (мов програмування, методологій розробки та тестування, знань баз даних та інфраструктури) допомагає бізнесу досягати поставлених цілей.',
   },
-  dba: {
+  'dba': {
     title: 'Database Administrator (DBA)',
     description:
       'Engineer в TENTENS Tech - це партнер для бізнесу, який використовуючи свій набір інструментів (мов програмування, методологій розробки та тестування, знань баз даних та інфраструктури) допомагає бізнесу досягати поставлених цілей.',
   },
-  devops: {
+  'devops': {
     title: 'DevOps',
     description:
       'Engineer в TENTENS Tech - це партнер для бізнесу, який використовуючи свій набір інструментів (мов програмування, методологій розробки та тестування, знань баз даних та інфраструктури) допомагає бізнесу досягати поставлених цілей.',
   },
-  qa: {
+  'qa': {
     title: 'Quality Assurance',
     description:
       'Engineer в TENTENS Tech - це партнер для бізнесу, який використовуючи свій набір інструментів (мов програмування, методологій розробки та тестування, знань баз даних та інфраструктури) допомагає бізнесу досягати поставлених цілей.',
   },
-  analytics: {
+  'analytics': {
     title: 'Analytic',
     description:
       'Аналітик відповідає за збір, обробку та аналіз даних, щоб допомогти бізнесу приймати обґрунтовані рішення.',
   },
-  design: {
+  'data-engineer': {
+    title: 'Data Engineer',
+    description:
+      'Data Engineer відповідає за дані, на яких працює аналітика: інтеграції джерел, пайплайни та аналітичні таблиці. На вищих грейдах — за якість DE-функції і рішення, яким довіряють інші команди.',
+  },
+  'design': {
     title: 'Designer',
     description:
       'Створює естетичний та функціональний дизайн згідно потреб бізнесу.',
@@ -102,7 +108,7 @@ const rolesMap: Record<string, { title: string, description: string }> = {
 const route = useRoute<'tech-career-role'>()
 const roleData = rolesMap[route.params.role]
 
-const isHeaderBtnVisible = roleData.title !== 'Analytic' && roleData.title !== 'Designer'
+const isHeaderBtnVisible = roleData.title !== 'Analytic' && roleData.title !== 'Designer' && roleData.title !== 'Data Engineer'
 </script>
 
 <template>
@@ -135,10 +141,8 @@ const isHeaderBtnVisible = roleData.title !== 'Analytic' && roleData.title !== '
     <div p="x-20px t-60px b-100px">
       <template v-if="route.params.role !== LEAD_ROLE">
         <div
-          m-b-30px
-          text-header-1
-          text-white
-          case-upper
+
+          m-b-30px text-header-1 case-upper text-white
         >
           Individual contributor track
         </div>
@@ -150,10 +154,8 @@ const isHeaderBtnVisible = roleData.title !== 'Analytic' && roleData.title !== '
       </template>
 
       <div
-        m-b-30px
-        text-header-1
-        text-white
-        case-upper
+
+        m-b-30px text-header-1 case-upper text-white
       >
         Leadership track
       </div>
@@ -181,7 +183,7 @@ const isHeaderBtnVisible = roleData.title !== 'Analytic' && roleData.title !== '
           <TheBreadcrumbs />
         </div>
 
-        <div text-title m-b-20px>
+        <div m-b-20px text-title>
           {{ roleData.title }}
         </div>
 
@@ -204,10 +206,8 @@ const isHeaderBtnVisible = roleData.title !== 'Analytic' && roleData.title !== '
     >
       <template v-if="route.params.role !== LEAD_ROLE">
         <div
-          text-header-1
-          text-white
-          m-b-60px
-          case-upper
+
+          m-b-60px text-header-1 case-upper text-white
         >
           Individual contributor track
         </div>
@@ -216,10 +216,8 @@ const isHeaderBtnVisible = roleData.title !== 'Analytic' && roleData.title !== '
       </template>
 
       <div
-        text-header-1
-        text-white
-        m-b-50px
-        case-upper
+
+        m-b-50px text-header-1 case-upper text-white
       >
         Leadership track
       </div>

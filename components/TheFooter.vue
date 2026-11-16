@@ -223,6 +223,13 @@ const isGrowthCaseMobile = isGrowthCasePage && isMobile
             </NuxtLink>
 
             <NuxtLink
+              to="/tech-career/data-engineer"
+              hover-text="#00F3BC"
+            >
+              Data Engineer
+            </NuxtLink>
+
+            <NuxtLink
               to="/tech-career/design"
               hover-text="#00F3BC"
             >
@@ -301,6 +308,13 @@ const isGrowthCaseMobile = isGrowthCasePage && isMobile
             </NuxtLink>
 
             <NuxtLink
+              to="/tech-career/data-engineer"
+              hover-text="#00F3BC"
+            >
+              Data Engineer
+            </NuxtLink>
+
+            <NuxtLink
               to="/tech-career/design"
               hover-text="#00F3BC"
             >
@@ -318,8 +332,8 @@ const isGrowthCaseMobile = isGrowthCasePage && isMobile
 
         <SocialLinks
           v-if="isMobile"
-          justify-center
-          m-b-30px
+
+          m-b-30px justify-center
         />
       </div>
     </div>

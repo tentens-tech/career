@@ -17,6 +17,7 @@ const competitionsItems: { name: string, path: string }[] = [
   { name: 'DBA', path: '/tech-career/dba' },
   { name: 'SO', path: '/tech-career/so' },
   { name: 'Analytic', path: '/tech-career/analytics' },
+  { name: 'Data Engineer', path: '/tech-career/data-engineer' },
   { name: 'Design', path: '/tech-career/design' },
   { name: 'Lead track', path: '/tech-career/lead' },
 ]

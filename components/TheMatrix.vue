@@ -19,22 +19,25 @@ const props = defineProps<{
   role: string
 }>()
 
+const gradesIc4: Grades[] = [
+  GradesDesign.IC1,
+  GradesDesign.IC2,
+  GradesDesign.IC3,
+  GradesDesign.IC4,
+]
+
 const gradesOrderMap: Record<string, Grades[]> = {
-  analytics: [
+  'analytics': [
     GradesAnalytics.IC1,
     GradesAnalytics.IC2,
     GradesAnalytics.IC3,
     GradesAnalytics.IC4,
     GradesAnalytics.IC5,
   ],
-  design: [
-    GradesDesign.IC1,
-    GradesDesign.IC2,
-    GradesDesign.IC3,
-    GradesDesign.IC4,
-  ],
-  lead: [GradesLead.L1, GradesLead.L2],
-  default: [
+  'data-engineer': gradesIc4,
+  'design': gradesIc4,
+  'lead': [GradesLead.L1, GradesLead.L2],
+  'default': [
     GradesIC.IC1,
     GradesIC.IC2,
     GradesIC.IC3,
@@ -180,9 +183,8 @@ watch(currentGrade, () => {
     >
       <div
         flex="~ items-center justify-between items-center"
-        p-y-30px
-        m-l-10px
-        cursor-pointer
+
+        m-l-10px cursor-pointer p-y-30px
         :class="isDropdownOpened ? 'm-b-10px' : 'm-b-0'"
         @click="toggleDropdown"
       >
@@ -207,10 +209,10 @@ watch(currentGrade, () => {
 
       <div
         v-if="isDropdownOpened"
-        p-l-10px
+
         flex="~ col gap-10px"
-        h-auto
-        overflow-hidden
+
+        h-auto overflow-hidden p-l-10px
         class="skills"
       >
         <div
@@ -223,10 +225,10 @@ watch(currentGrade, () => {
               flex="~ justify-between items-center gap-10px"
               bg="#26262682"
               hover="text-#00F3BC"
-              font-500
+
               b="1px rd-8px #393939"
               p="y-10px x-14px"
-              cursor-pointer
+              cursor-pointer font-500
               :text="isCurrentSkill(skill) ? '#00F3BC' : 'white'"
               @click="selectSkill(skill)"
             >
@@ -235,9 +237,9 @@ watch(currentGrade, () => {
               <div
                 :bg="isCurrentSkill(skill) ? '#00F3BC' : '#393939'"
                 b="2px rd-50% #393939"
-                min-w-13px
-                min-h-13px
-              ></div>
+
+                min-h-13px min-w-13px
+              />
             </div>
 
             <div
@@ -273,9 +275,9 @@ watch(currentGrade, () => {
             <div
               bg="#393939"
               b="2px rd-50% #393939"
-              min-w-13px
-              min-h-13px
-            ></div>
+
+              min-h-13px min-w-13px
+            />
           </div>
         </div>
       </div>
@@ -287,12 +289,12 @@ watch(currentGrade, () => {
       @touchmove="handleTouchMove"
     >
       <MatrixCard
-        :currentPosition="{
+        :current-position="{
           grade: currentGrade,
           skill: currentSkill,
         }"
-        :roleContent="currentRoleContent"
-        :hasSubskills="hasSubskills(currentSkill)"
+        :role-content="currentRoleContent"
+        :has-subskills="hasSubskills(currentSkill)"
         type="active"
         m-b-30px
       />
@@ -331,33 +333,33 @@ watch(currentGrade, () => {
 
   <div
     v-else
-    flex
-    position-relative
+
+    position-relative flex
     @touchstart="handleTouchStart"
     @touchmove="handleTouchMove"
   >
     <div
-      w-283px
-      m-r-37px
+
+      m-r-37px w-283px
       b="2px rd-20px #222222"
       p="y-28px x-25px"
     >
       <div
-        font-700
+
         text="26px white"
-        line-height-26px
+
         m="b-15px l-10px"
-        w-fit
+        w-fit font-700 line-height-26px
       >
         Skills
       </div>
 
       <div
         class="skills"
-        p-l-10px
+
         flex="~ col gap-10px"
-        h-536px
-        overflow-y-scroll
+
+        h-536px overflow-y-scroll p-l-10px
       >
         <div
           v-for="skill in skills"
@@ -366,24 +368,24 @@ watch(currentGrade, () => {
         >
           <template v-if="hasContent(skill)">
             <div
-              @click="selectSkill(skill)"
               flex="~ justify-between items-center gap-10px"
               bg="#26262682"
               :text="isCurrentSkill(skill) ? '#00F3BC' : 'white'"
               hover="text-#00F3BC"
-              font-500
               b="1px rd-8px #393939"
+
               p="y-10px x-14px"
               cursor-pointer
+              font-500 @click="selectSkill(skill)"
             >
               {{ skill }}
 
               <div
                 :bg="isCurrentSkill(skill) ? '#00F3BC' : '#393939'"
                 b="2px rd-50% #393939"
-                min-w-13px
-                min-h-13px
-              ></div>
+
+                min-h-13px min-w-13px
+              />
             </div>
 
             <div
@@ -419,9 +421,9 @@ watch(currentGrade, () => {
             <div
               bg="#393939"
               b="2px rd-50% #393939"
-              min-w-13px
-              min-h-13px
-            ></div>
+
+              min-h-13px min-w-13px
+            />
           </div>
         </div>
       </div>
@@ -429,12 +431,12 @@ watch(currentGrade, () => {
 
     <div>
       <MatrixCard
-        :currentPosition="{
+        :current-position="{
           grade: currentGrade,
           skill: currentSkill,
         }"
-        :roleContent="currentRoleContent"
-        :hasSubskills="hasSubskills(currentSkill)"
+        :role-content="currentRoleContent"
+        :has-subskills="hasSubskills(currentSkill)"
         type="active"
         m-b-30px
       />
@@ -474,12 +476,12 @@ watch(currentGrade, () => {
       <MatrixCard
         v-for="nextGrade in nextGrades"
         :key="nextGrade"
-        :currentPosition="{
+        :current-position="{
           grade: nextGrade,
           skill: currentSkill,
         }"
-        :roleContent="currentRoleContent"
-        :hasSubskills="hasSubskills(currentSkill)"
+        :role-content="currentRoleContent"
+        :has-subskills="hasSubskills(currentSkill)"
         type="inactive"
       />
     </div>

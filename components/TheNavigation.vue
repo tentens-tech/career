@@ -5,6 +5,7 @@ const links: { name: string, path: string }[] = [
   { name: 'Backend', path: '/tech-career/backend' },
   { name: 'Devops', path: '/tech-career/devops' },
   { name: 'Analytic', path: '/tech-career/analytics' },
+  { name: 'Data Engineer', path: '/tech-career/data-engineer' },
   { name: 'Frontend', path: '/tech-career/frontend' },
   { name: 'DBA', path: '/tech-career/dba' },
   { name: 'Design', path: '/tech-career/design' },
@@ -19,6 +20,7 @@ const linksBlocks: { name: string, path: string }[][] = [
     { name: 'Backend', path: '/tech-career/backend' },
     { name: 'Devops', path: '/tech-career/devops' },
     { name: 'Analytic', path: '/tech-career/analytics' },
+    { name: 'Data Engineer', path: '/tech-career/data-engineer' },
   ],
   [
     { name: 'Frontend', path: '/tech-career/frontend' },
@@ -38,19 +40,15 @@ const linksBlocks: { name: string, path: string }[][] = [
 
 <template>
   <div v-if="isMobile">
-    <div text-header-1 m-b-30px>
+    <div m-b-30px text-header-1>
       Navigation
     </div>
 
     <div
-      p-30px
-      w-full
-      overflow-hidden
-      text-24px
-      line-height-29px
+
       grid="~ rows-2"
-      row-gap-20px
-      text-white
+
+      row-gap-20px w-full overflow-hidden p-30px text-24px line-height-29px text-white
       b="2px rd-10px #222"
       class="links-grid_mobile"
     >
@@ -66,9 +64,8 @@ const linksBlocks: { name: string, path: string }[][] = [
     </div>
 
     <div
-      flex
-      justify-center
-      m-t-64px
+
+      m-t-64px flex justify-center
     >
       <AnimatedButton
         title="Tech career framework"
@@ -78,21 +75,18 @@ const linksBlocks: { name: string, path: string }[][] = [
   </div>
 
   <div v-else>
-    <div text-header-1 m-b-60px>
+    <div m-b-60px text-header-1>
       Navigation
     </div>
 
     <div
       v-if="isDesktopSmall"
-      position-relative
-      overflow-hidden
-      text-24px
-      line-height-29px
+
       grid="~ rows-3 row-gap-20px"
-      text-white
+
       b="2px rd-10px #222"
       p="y-50px x-65px"
-      w-full
+      position-relative w-full overflow-hidden text-24px line-height-29px text-white
       class="links-grid_small-desktop"
     >
       <NuxtLink
@@ -108,15 +102,10 @@ const linksBlocks: { name: string, path: string }[][] = [
 
     <div
       v-else
-      flex
-      position-relative
-      overflow-hidden
-      text-24px
-      line-height-29px
-      text-white
+
       b="2px rd-10px #222"
       p="y-50px x-65px"
-      w-full
+      position-relative w-full flex overflow-hidden text-24px line-height-29px text-white
       class="links-grid_desktop"
     >
       <div
@@ -156,7 +145,7 @@ const linksBlocks: { name: string, path: string }[][] = [
     width: 100%;
     row-gap: 20px;
     column-gap: 65px;
-    grid-template-columns: repeat(4, 160px);
+    grid-template-columns: repeat(4, minmax(160px, max-content));
   }
 
   &_small-desktop {
